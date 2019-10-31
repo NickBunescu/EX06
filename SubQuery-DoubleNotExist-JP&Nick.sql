@@ -1,0 +1,14 @@
+/* Query - by Nick and JP - Double Not Exists */
+
+SELECT DISTINCT EmployeeNumber
+FROM EMPLOYEE
+WHERE NOT EXISTS (
+SELECT *
+FROM ASSIGNMENT
+WHERE NOT EXISTS (
+SELECT *
+FROM DEPARTMENT
+ORDER BY EmployeeNumber
+)
+);
+
